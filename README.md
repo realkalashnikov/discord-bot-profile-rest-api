@@ -66,7 +66,22 @@ Quando a imagem é carregada da internet:
 - O bot realiza uma requisição HTTP GET para baixar a imagem.
 - É verificado se o cabeçalho de resposta `Content-Type` é uma imagem válida.
 - O corpo da resposta (array buffer de bytes) é lido e convertido em Base64.
-- É recomendável limitar o download para imagens de até 10 MB para evitar estouro de memória e rejeições pela API.
+### Como gerar a string Base64 manualmente
+
+Caso queira testar a requisição usando um cliente HTTP como Postman, Insomnia ou Bruno, você pode codificar uma imagem local para Base64 diretamente pelo terminal do seu sistema operacional:
+
+- **Linux / macOS (Bash):**
+  ```bash
+  base64 -w 0 imagem.png
+  ```
+
+- **Windows (PowerShell):**
+  ```powershell
+  [Convert]::ToBase64String([IO.File]::ReadAllBytes("imagem.png"))
+  ```
+
+- **Ferramentas Online:**
+  Você também pode utilizar sites como `base64-image.de` ou qualquer conversor confiável de imagem para Base64. Lembre-se de concatenar o prefixo `data:image/png;base64,` antes do conteúdo gerado.
 
 ---
 
