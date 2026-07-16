@@ -80,8 +80,16 @@ Caso queira testar a requisição usando um cliente HTTP como Postman, Insomnia 
   [Convert]::ToBase64String([IO.File]::ReadAllBytes("imagem.png"))
   ```
 
+- **Dispositivos Móveis (Android & iOS):**
+  - **Android (via Termux):**
+    ```bash
+    base64 imagem.png | tr -d '\n'
+    ```
+  - **iOS / iPadOS (via aplicativo Atalhos):**
+    Você pode criar um atalho simples contendo a ação *Codificar com Base64* recebendo arquivos do rolo da câmera ou aplicativo Arquivos, copiando o resultado final direto para a área de transferência.
+
 - **Ferramentas Online:**
-  Você também pode utilizar sites como `base64-image.de` ou qualquer conversor confiável de imagem para Base64. Lembre-se de concatenar o prefixo `data:image/png;base64,` antes do conteúdo gerado.
+  Você também pode utilizar sites como `base64-image.de` ou qualquer conversor confiável de imagem para Base64 diretamente no navegador do seu smartphone. Lembre-se de concatenar o prefixo `data:image/png;base64,` antes do conteúdo gerado.
 
 ---
 
